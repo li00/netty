@@ -16,7 +16,7 @@ public class NettyApplication {
         SpringApplication.run(NettyApplication.class, args);
         //启动服务端
         NettyServer nettyServer = new NettyServer();
-        nettyServer.start(new InetSocketAddress("127.0.0.1", 9110));
+        nettyServer.start(new InetSocketAddress("192.168.0.131", 9110));
     }
 
 }

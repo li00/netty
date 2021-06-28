@@ -19,8 +19,10 @@ public class ServerChannelInitializer extends ChannelInitializer<SocketChannel> 
         //添加编解码
         //socketChannel.pipeline().addLast("decoder", new StringDecoder(CharsetUtil.UTF_8));
         //socketChannel.pipeline().addLast("encoder", new StringEncoder(CharsetUtil.UTF_8));
-        socketChannel.pipeline().addLast(new StringDecoder(Charset.forName("GBK")));
-        socketChannel.pipeline().addLast(new StringEncoder(Charset.forName("GBK")));
+        //自定义16进制解码
+        socketChannel.pipeline().addLast("decoder", new HexDecoder());
+        //socketChannel.pipeline().addLast(new StringDecoder(Charset.forName("GBK")));
+        //socketChannel.pipeline().addLast(new StringEncoder(Charset.forName("GBK")));
         socketChannel.pipeline().addLast(new NettyServerHandler());
     }
 }
